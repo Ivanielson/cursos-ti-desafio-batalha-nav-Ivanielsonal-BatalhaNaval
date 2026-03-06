@@ -24,6 +24,9 @@ int main() {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
 
+    int shipOne[3] = {3, 3, 3};
+    int shipTwo[3] = {3, 3, 3};
+
     // Calcula o tamanho do tabuleiro: 400 bytes (total) / 40 bytes (uma linha) = 10 linhas
     int sizeBoard = sizeof(board) / sizeof(board[0]);
 
@@ -44,9 +47,13 @@ int main() {
 
         for (int column = 0; column < sizeBoard; column++) {
             if (line == 3 && column <= 2) {             // Imprime um "3" para representar um navio de 3 posições na linha 4 (índice 3) e colunas 1, 2 e 3 (índices 0, 1 e 2)
-                printf("%i ", 3);
+                int indexShipOne = 0;
+                printf("%i ", shipOne[indexShipOne]);
+                indexShipOne++;
             } else if (line >= 7 && column == 7) {      // Imprime um "3" para representar um navio de 3 posições na coluna 8 (índice 7) e linhas 8, 9 e 10 (índices 7, 8 e 9)
-                printf("%i ", 3);
+                int indexShipTwo = 0;
+                printf("%i ", shipTwo[indexShipTwo]);
+                indexShipTwo++;
             } else {                                    // Imprime "0" para representar as posições vazias do tabuleiro
                 printf("%i ", board[line][column]);
             }
@@ -54,7 +61,7 @@ int main() {
         }
         printf("\n");                                   // Imprime uma nova linha para separar as linhas do tabuleiro
     }
-    printf("\n");
+    printf("\n");                                       // Imprime uma nova linha para separar o tabuleiro do restante do texto
 
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
